@@ -1,16 +1,17 @@
 // React
 import React, { createContext, useReducer } from "react";
 
-// State and context
+// Create the initial state
 const initialState = {
   loading: false,
-  city: {},
-  weather: [],
+  weatherData: [],
   error: "",
 };
 
-const StoreContext = createContext(initialState);
+// Create the context
+const StoreContext = createContext();
 
+// Create the reducer
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_LOAD":
@@ -20,19 +21,33 @@ const reducer = (state, action) => {
       };
 
     case "FETCH_WEATHER_SUCCESS":
+      console.log(action.weatherData);
       return {
         loading: false,
         city: action.city,
-        weather: {},
+        weatherData: action.weatherData,
         error: "",
       };
 
     case "FETCH_WEATHER_FAIL":
       return {
         loading: false,
-        city: {},
-        weather: {},
+        weatherData: [],
         error: "Error obtaining weather data!",
+      };
+
+    case "NO_COUNTRY":
+      return {
+        loading: false,
+        weatherData: [],
+        error: "Unknown country inputted!",
+      };
+
+    case "NO_CITY":
+      return {
+        loading: false,
+        weatherData: [],
+        error: "Unknown city inputted!",
       };
 
     default:
@@ -40,6 +55,7 @@ const reducer = (state, action) => {
   }
 };
 
+// Create the HOC
 const StateProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 

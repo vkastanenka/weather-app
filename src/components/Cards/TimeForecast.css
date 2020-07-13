@@ -1,0 +1,28 @@
+.time-forecast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-forecast__icon {
+  width: 12rem;
+  height: 12rem;
+}
+
+.time-forecast__high-low {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-forecast__high-low span {
+  margin: 0 1rem;
+}
+
+.time-forecast__high-low > :first-child {
+  margin-bottom: 0.5rem;
+}
+
+.time-forecast__high-low > :nth-child(2) {
+  color: #ccd;
+}

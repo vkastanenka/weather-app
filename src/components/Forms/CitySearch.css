@@ -1,0 +1,42 @@
+.form {
+  display: flex;
+  align-items: center;
+}
+
+.form > :not(:last-child) {
+  margin-right: 1rem;
+}
+
+.form > * {
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2), -2px -2px 10px rgba(0,0,0,0.2),
+}
+
+.form__input {
+  padding: 1rem;
+  text-align: center;
+  border: none;
+}
+
+.form__input::placeholder {
+  text-align: center;
+}
+
+.btn {
+  color: #f7f7f7;
+  cursor: pointer;
+  padding: 1.1rem 4rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: #5643fa;
+}
+
+.form__input,
+.form__input::placeholder,
+.btn {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+}
